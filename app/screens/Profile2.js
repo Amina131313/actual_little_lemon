@@ -52,8 +52,14 @@ export default function Profile2() {
     const saveProfile = async () => {
         try {
             await AsyncStorage.setItem('firstName', firstName);
+            await AsyncStorage.setItem('lastName', lastName);
             await AsyncStorage.setItem('email', email);
+            await AsyncStorage.setItem('phone', phone);
             if (profileImage) await AsyncStorage.setItem('profileImage', profileImage);
+            await AsyncStorage.setItem('orderStatus', orderStatus.toString());
+            await AsyncStorage.setItem('passwordChanges', passwordChanges.toString());
+            await AsyncStorage.setItem('specialOffers', specialOffers.toString());
+            await AsyncStorage.setItem('newsletter', newsletter.toString());
             Alert.alert('Success', 'Profile saved successfully');       
      } catch (error) {
             console.error('Error saving data', error);
